@@ -10,6 +10,7 @@ import {
   SpanBoundsType,
   SpanGeneratedBoundsType,
   pickSpanBarColour,
+  generateRootSpan,
 } from './utils';
 import {DragManagerChildrenProps} from './dragManager';
 import SpanGroup from './spanGroup';
@@ -210,14 +211,7 @@ class SpanTree extends React.Component<PropType> {
   renderRootSpan = (): RenderedSpanTree => {
     const {dragProps, trace} = this.props;
 
-    const rootSpan: SpanType = {
-      trace_id: trace.traceID,
-      span_id: trace.rootSpanID,
-      start_timestamp: trace.traceStartTimestamp,
-      timestamp: trace.traceEndTimestamp,
-      op: trace.op,
-      data: {},
-    };
+    const rootSpan: SpanType = generateRootSpan(trace);
 
     const generateBounds = boundsGenerator({
       traceStartTimestamp: trace.traceStartTimestamp,

@@ -1,5 +1,6 @@
 import isString from 'lodash/isString';
 import {divergentColorScale, spanColors} from 'app/utils/theme';
+import {ParsedTraceType, SpanType} from './types';
 
 type Rect = {
   // x and y are left/top coords respectively
@@ -293,3 +294,16 @@ export const setBodyUserSelect = (nextValues: UserSelectValues): UserSelectValue
 
   return previousValues;
 };
+
+export function generateRootSpan(trace: ParsedTraceType): SpanType {
+  const rootSpan: SpanType = {
+    trace_id: trace.traceID,
+    span_id: trace.rootSpanID,
+    start_timestamp: trace.traceStartTimestamp,
+    timestamp: trace.traceEndTimestamp,
+    op: trace.op,
+    data: {},
+  };
+
+  return rootSpan;
+}
