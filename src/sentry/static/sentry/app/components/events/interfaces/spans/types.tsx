@@ -8,6 +8,7 @@ export type SpanType = {
   op?: string;
   description?: string;
   data: Object;
+  tags?: {[key: string]: string};
 };
 
 export type SpanEntry = {
@@ -31,6 +32,7 @@ export type ParsedTraceType = {
   traceStartTimestamp: number;
   traceEndTimestamp: number;
   numOfSpans: number;
+  spans: SpanType[];
 };
 
 export enum TickAlignment {

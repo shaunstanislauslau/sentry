@@ -27,8 +27,11 @@ class SpansInterface extends React.Component<PropType, State> {
   };
 
   handleSpanFilter = (searchQuery: string) => {
-    console.log('searchQuery', searchQuery);
+    this.setState({
+      searchQuery: searchQuery || undefined,
+    });
   };
+
   render() {
     const {event} = this.props;
 
@@ -46,7 +49,7 @@ class SpansInterface extends React.Component<PropType, State> {
             {t('Trace View - This Transaction')}
           </PanelHeader>
           <PanelBody>
-            <TraceView event={event} />
+            <TraceView event={event} searchQuery={this.state.searchQuery} />
           </PanelBody>
         </Panel>
       </div>
