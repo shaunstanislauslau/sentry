@@ -5,6 +5,7 @@ import theme from 'app/utils/theme';
 
 export const zIndex = {
   minimapContainer: theme.zIndex.traceView.minimapContainer,
+  rowInfoMessage: theme.zIndex.traceView.rowInfoMessage,
   dividerLine: theme.zIndex.traceView.dividerLine,
   spanTreeToggler: theme.zIndex.traceView.spanTreeToggler,
 };
@@ -58,7 +59,7 @@ export const SpanRowMessage = styled(SpanRow)`
 
   outline: 1px solid #c9d4ea;
 
-  z-index: 99999;
+  z-index: ${zIndex.rowInfoMessage};
 
   > * + * {
     margin-left: ${space(2)};
