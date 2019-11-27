@@ -59,4 +59,8 @@ export const SpanRowMessage = styled(SpanRow)`
   outline: 1px solid #c9d4ea;
 
   z-index: 99999;
+
+  > * + * {
+    margin-left: ${space(2)};
+  }
 `;
