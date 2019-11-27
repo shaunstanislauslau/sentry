@@ -10,7 +10,7 @@ def hide_environment_none(apps, schema_editor):
     We should iterate over each environment row individually in python instead so that we don't lock the DB up. This is
     far slower but much safer
     """
-    Environment = apps.get_model("sentry", "Environment")
+    EnvironmentProject = apps.get_model("sentry", "EnvironmentProject")
     for project in EnvironmentProject.objects.filter(environment__name='none'):
         project.is_hidden = True
         project.save()
