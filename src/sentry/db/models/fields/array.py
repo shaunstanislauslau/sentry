@@ -50,7 +50,3 @@ class ArrayField(models.Field):
         raise NotImplementedError(
             u"{!r} lookup type for {!r} is not supported".format(lookup_type, self)
         )
-
-
-if hasattr(models, "SubfieldBase"):
-    ArrayField = six.add_metaclass(models.SubfieldBase)(ArrayField)
